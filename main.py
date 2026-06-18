@@ -79,11 +79,11 @@ class PitchSpec:
 
 
 PITCH_SPECS = [
-    PitchSpec("Fastball", 94, 101, 6.0, -2.0, 0.96, (245, 247, 255)),
-    PitchSpec("Slider", 83, 90, -42.0, 8.0, 0.82, (255, 229, 181)),
-    PitchSpec("Curveball", 76, 83, 12.0, 54.0, 0.78, (208, 228, 255)),
-    PitchSpec("Changeup", 78, 86, 9.0, 28.0, 0.86, (231, 255, 214)),
-    PitchSpec("Sinker", 90, 96, 14.0, 36.0, 0.88, (255, 232, 220)),
+    PitchSpec("Fastball", 94, 101, 6.0, 2.0, 0.96, (245, 247, 255)),
+    PitchSpec("Slider", 83, 90, -42.0, -8.0, 0.82, (255, 229, 181)),
+    PitchSpec("Curveball", 76, 83, 12.0, -54.0, 0.78, (208, 228, 255)),
+    PitchSpec("Changeup", 78, 86, 9.0, -28.0, 0.86, (231, 255, 214)),
+    PitchSpec("Sinker", 90, 96, 14.0, -36.0, 0.88, (255, 232, 220)),
 ]
 
 
@@ -261,11 +261,11 @@ class Pitch:
 
 
 class Fielder:
-    def __init__(self, name, x, y, speed, color):
+    def __init__(self, name: str, x: float, y: float, speed: float, color: tuple[int, int, int]):
         self.name = name
         self.home = pygame.Vector2(x, y)
         self.pos = pygame.Vector2(x, y)
-        self.speed = speed
+        self.speed = float(speed)
         self.color = color
 
     def reset(self):
