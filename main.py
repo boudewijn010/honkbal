@@ -1550,7 +1550,7 @@ class Game:
             title_text  = "GELIJKSPEL"
             title_color = (200, 200, 200)
         else:
-            title_text  = "VERLOREN"
+            title_text  = "je bent ass ga beter worden ofzo"
             title_color = (255, 90, 90)
 
         title_surf = self.fonts["huge"].render(title_text, True, title_color)
