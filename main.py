@@ -237,16 +237,6 @@ class SoundManager:
         self.enabled = False
         self.sounds = {}
         self.crowd_channel = None
-        try:
-            if not pygame.mixer.get_init():
-                pygame.mixer.init(frequency=44100, size=-16, channels=1, buffer=512)
-            self.enabled = True
-            self.crowd_channel = pygame.mixer.Channel(7)
-            self._build_sounds()
-            self.sounds["crowd"].set_volume(0.18)
-            self.crowd_channel.play(self.sounds["crowd"], loops=-1)
-        except pygame.error:
-            self.enabled = False
 
     def play(self, name, volume=1.0):
         if not self.enabled or name not in self.sounds:
@@ -331,7 +321,7 @@ PITCHERS = [
     PitcherProfile("Burnes",     [5, 1, 0], [44, 34, 22], 0.59, 0),
     PitcherProfile("Bieber",     [0, 2, 3], [46, 28, 26], 0.65, 0),
     PitcherProfile("Strasburg",  [0, 2, 1], [44, 32, 24], 0.60, 0),
-    PitcherProfile("Verlander2", [0, 1, 4], [50, 28, 22], 0.64, +3),  # late-game closer
+    PitcherProfile("Duran", [0, 1, 4], [50, 28, 22], 0.64, +5),  # late-game closer
 ]
 
 
@@ -1629,7 +1619,6 @@ class Game:
 
 # ─── Entry point ──────────────────────────────────────────────────────────────
 def main():
-    pygame.mixer.pre_init(44100, -16, 1, 512)
     game = Game()
     game.run()
 
